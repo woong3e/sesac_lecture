@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html_prac</title>
+    <link rel="stylesheet" href="css_prac.css" />
+  </head>
+  <body>
+    <header>
+      <h1>gunwoong32 Menu Manager</h1>
+      <p>메뉴를 등록하고, 조회하고 관리할 수 있는 메뉴 관리 시스템입니다.</p>
+      <nav>
+        <li><a href="#intro">서비스 소개</a></li>
+        <li><a href="#categories">카테고리</a></li>
+        <li><a href="#menu-list">메뉴 목록</a></li>
+        <li><a href="#add-menu">메뉴 등록</a></li>
+      </nav>
+    </header>
+    <hr />
+    <div class="box intro">
+      <h2 id="intro">서비스 소개</h2>
+      <hr />
+      <p>
+        <strong>gunwoong32 Menu Manager</strong>는 음식점의 메뉴 정보를 관리하기
+        위한 페이지입니다. <br />메뉴명, 가격, 카테고리, 판매 상태를 한눈에
+        확인할 수 있습니다.
+      </p>
+      <p>
+        이번 css 과제에서는 <strong>화면의 스타일</strong>을 적용하는 것에
+        집중합니다.
+      </p>
+    </div>
+
+    <div class="box categories">
+      <h2 id="categories">카테고리 목록</h2>
+      <hr />
+      <ul>
+        <li>한식</li>
+        <li>중식</li>
+        <li>일식</li>
+        <li>양식</li>
+        <li>디저트</li>
+        <li>음료</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>대표 메뉴</h2>
+      <hr />
+      <figure>
+        <img
+          src="sample/image/hamburger.jpg"
+          alt="햄버거"
+          width="300"
+          height="200"
+        />
+        <figcaption>오늘의 대표 메뉴 이미지입니다.</figcaption>
+      </figure>
+    </div>
+    <div class="box menu_list">
+      <h2 id="menu-list">메뉴 목록</h2>
+      <hr />
+      <table>
+        <caption>
+          등록된 메뉴 목록
+        </caption>
+        <tbody>
+          <tr>
+            <th>메뉴 번호</th>
+            <th>메뉴명</th>
+            <th>가격</th>
+            <th>카테고리</th>
+            <th>판매 상태</th>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>한우딸기국밥</td>
+            <td>15,000원</td>
+            <td>한식</td>
+            <td>판매중</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>참치맛아이스크림</td>
+            <td>8,000원</td>
+            <td>디저트</td>
+            <td>판매중</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>바닐라김치라떼</td>
+            <td>6,500원</td>
+            <td>한식</td>
+            <td id="soldout">품절</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td>매운초코파스타</td>
+            <td>12,000원</td>
+            <td>한식</td>
+            <td>판매중</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>마라민트탕수육</td>
+            <td>18,000원</td>
+            <td>한식</td>
+            <td>판매중</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td colspan="5">총 5개의 메뉴가 등록되어 있습니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box">
+      <h2 id="add-menu">메뉴 등록</h2>
+      <hr />
+      <form action="#" method="post">
+        <fieldset>
+          <legend>신규 메뉴 정보</legend>
+          <div class="menu_box">
+            <label for="menu-name">메뉴명</label>
+            <input
+              type="text"
+              id="menu-name"
+              name="menuName"
+              placeholder="메뉴명을 입력하세요"
+            />
+          </div>
+          <div class="menu_box">
+            <label for="menu-price">가격</label>
+            <input
+              type="number"
+              id="menu-price"
+              name="menuPrice"
+              placeholder="가격을 입력하세요"
+            />
+          </div>
+          <div class="menu_box">
+            <label for="menu-category">카테고리</label>
+            <select id="menu-category" name="menuCategory">
+              <option value="">카테고리 선택</option>
+              <option value="한식">한식</option>
+              <option value="중식">중식</option>
+              <option value="일식">일식</option>
+              <option value="양식">양식</option>
+              <option value="디저트">디저트</option>
+              <option value="음료">음료</option>
+            </select>
+          </div>
+          <div class="menu_box">
+            <label>판매 상태</label>
+            <div>
+              <input
+                type="radio"
+                id="menu-available"
+                name="menuStatus"
+                value="판매중"
+                checked
+              />
+              <label for="menu-available">판매중</label>
+
+              <input
+                type="radio"
+                id="menu-soldout"
+                name="menuStatus"
+                value="품절"
+              />
+              <label for="menu-soldout">품절</label>
+            </div>
+          </div>
+
+          <div class="menu_box">
+            <label for="menu-description">메뉴 설명</label>
+            <textarea
+              name="menuDescription"
+              id="menu-description"
+              placeholder="메뉴 설명을 입력하세요"
+            ></textarea>
+          </div>
+          <div class="menu_button">
+            <button type="submit">메뉴 등록</button>
+            <button type="reset">초기화</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="box">
+      <h2>관련 링크</h2>
+      <hr />
+      <p>
+        프로젝트 코드는 <a href="https://github.com" id="github">GitHub</a>에서
+        관리합니다.
+      </p>
+    </div>
+
+    <hr />
+    <footer>
+      <div>작성자: 장건웅</div>
+      <div>풀스택 개발자 과정 HTML 과제</div>
+      <div>작성일: 2026-09-03</div>
+    </footer>
+  </body>
+</html>
