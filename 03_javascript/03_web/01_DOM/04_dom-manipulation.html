@@ -78,15 +78,18 @@ ng="ko">
       console.log($newLi);
       // 2 . appendChild 로 ul 리스트의 마지막 자식으로 조립한다.
       $drinkList.appendChild($newLi);
+
       // 여러 요소를 효율적으로 추가하기 (DocumentFragment)
-      const $fragment = document.createDocumentFragment(); // 임시 조립 공간
+      const $fragment = document.createDocumentFragment(); // 임시 조립 공간, DOM 요소들을 잠깐 담아두는 임시 컨테이너
       ['사이다', '우유'].forEach((text) => {
         const $li = document.createElement('li');
         $li.textContent = text;
         $fragment.appendChild($li);
       });
+      
       // fragment에 모은 뒤 실제로 DOM에는 한 번에 추가한다.
       $drinkList.appendChild($fragment);
+
     </script>
 
     <hr />
@@ -127,6 +130,8 @@ ng="ko">
       // 4. 노드 삭제 (removeChild)
       $foodList.removeChild($pasta);
       $pizza.remove();
+
+      
     </script>
   </body>
 </html>

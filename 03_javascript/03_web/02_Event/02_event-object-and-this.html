@@ -50,8 +50,8 @@
       $btn.addEventListener('mouseover', (e) => {
         console.log('🚀🚀🚀화살표 함수🚀🚀🚀');
         // 바깥 스코프의 this를 가리킴.window 객체를 가리킨다.
-        console.log('this : ', this);
-        console.log(e.currentTarget);
+        console.log('this : ', this); // window 객체
+        console.log(e.currentTarget); // $btn
       });
     </script>
 

@@ -65,6 +65,18 @@
       // previousElementSibling : 나의 바로 이전 '형제 요소'를 반환한다.
       const $prev = $next.previousElementSibling;
       console.log($prev);
+
+      /* 
+        firstElementChild
+        lastElementChild
+        parentElement
+        nextElementSibling
+        previousElementSibling
+        ⬆️ 얘네들은 요소에 Element 들어간거 보고 HTML 요소만 대상으로 탐색한다고 보면 되고,
+        childNodes
+        parentNode
+        ⬆️ 얘네들은 node가 들어가니까 텍스트노드, 주석 노드 같은 것들도 node로 취급할 수 있음.
+      */
     </script>
   </body>
 </html>

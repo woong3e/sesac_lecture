@@ -46,7 +46,9 @@
       // querySelectorAll : css 선택자에 맞는 '모든 요소'를 NodeList로 찾아온다.
       const $fruits = document.querySelectorAll('.fruit');
       console.log($fruits);
-
+      // nodeList 는 배열이어서 forEach를 쓸 수 있는게 아님.
+      // NodeList.prototype 에 forEach()를 제공하기 때문에 forEach를 사용할 수 있는 것이다.
+      // map, filter, reduce같은 배열 메서드를 쓰려면 배열로 변환한 뒤 사용해주어야 한다.
       $fruits.forEach((item) => {
         item.style.border = '1px solid skyblue';
       });
@@ -103,10 +105,15 @@
         item.classList.remove('text2');
       });
 
-      console.log($texts2.length); // 0, 실시간으로 비어있음.
-      console.log(textArray.length); // 3
+      console.log($texts2.length); // 0, 실시간으로 비어있음. HTMLCollection은 DOM의 변화에 따라 실시간으로 반영하기 때문이다.
+      console.log(textArray.length); // 3 따라서 순회하면서 DOM을 수정할 일이 있으면 배열로 복사해서 고정된 목록으로 만든 뒤에 순환하자.
 
-      /* NodeList와 HTMLCollection 의 차이를 설명해보세요. */
+      /* NodeList와 HTMLCollection 의 차이를 설명해보세요.
+      NodeList와 HTMLCollection은 둘 다 여러 DOM 요소를 담는 유사 배열 객체임. 실제 배열은 아님.
+      NodeList는 고정된 값을 반환함. HTMLCollection은 DOM의 변경을 실시간으로 반영한다. 
+      NodeList.prototype.forEach // 있음, 하지만 다른 배열 메서드는 못씀. filter, reduce등 못씀.
+      HTMLCollection.prototype.forEach // 없음 -> 얘는 쓰려면 배열로 바꾼다음에 써야돼.
+      */
     </script>
   </body>
 </html>
