@@ -189,16 +189,6 @@
           grid-template-columns: 1fr;
         }
       }
-
-      .normal {
-        font-size: normal;
-      }
-      .compact {
-        font-size: small;
-      }
-      .dark {
-        background-color: #111;
-      }
     </style>
   </head>
   <body>
@@ -245,43 +235,30 @@
       <p id="search-result" class="result">검색 결과가 여기에 표시됩니다.</p>
 
       <script>
-        // 검색 버튼을 누르면 input의 현재 입력값을 가져옵니다.
-        // 입력값의 앞뒤 공백을 제거하고 소문자로 바꿉니다.
-        // querySelectorAll로 모든 상품 요소를 선택합니다.
-        // 상품 이름에 검색어가 포함되면 matched 클래스를 추가하고, 포함되지 않으면 제거합니다.(for...of / includes 사용)
-        // 일치한 상품 개수를 #search-result의 텍스트로 출력합니다.
-        // 빈 검색어이면 모든 상품의 matched 클래스를 제거하고 결과에 안내 문구를 출력합니다.
         function searchProducts() {
           const $searchInput = document.getElementById('search-input');
-          const keyword = $searchInput.value.trim().toLowerCase();
-
-          const $products = document.querySelectorAll('.product');
           const $searchResult = document.getElementById('search-result');
+          const $searchWord = $searchInput.value.trim().toLowerCase();
+          const $products = document.querySelectorAll('.product');
 
-          // 빈 검색어 처리
-          if (keyword === '') {
-            for (const $product of $products) {
-              $product.classList.remove('matched');
-            }
-
-            $searchResult.textContent = '검색어를 입력해주세요.';
-            return;
-          }
-
-          let matchedCount = 0;
-
+          let count = 0;
           for (const $product of $products) {
-            const productName = $product.textContent.trim().toLowerCase();
-
-            if (productName.includes(keyword)) {
+            if ($product.textContent.includes($searchWord)) {
               $product.classList.add('matched');
-              matchedCount++;
+              count++;
             } else {
               $product.classList.remove('matched');
             }
           }
+          $searchResult.textContent = `일치한 상품 개수: ${count}`;
 
-          $searchResult.textContent = `일치한 상품: ${matchedCount}개`;
+          if ($searchWord === '') {
+            for (const $product of $products) {
+              $product.classList.remove('matched');
+            }
+            $searchResult.textContent = '검색어를 입력해주세요';
+            return;
+          }
         }
       </script>
     </section>
@@ -318,12 +295,6 @@
       </p>
 
       <script>
-        // #current-step 요소를 기준으로 탐색합니다.
-        // 부모 요소를 찾아 테두리 색상을 파란색으로 변경합니다.(borderColor)
-        // 부모의 첫 번째 자식과 마지막 자식에 edge 클래스를 추가합니다.
-        // 기준 요소의 이전 형제와 다음 형제의 텍스트를 가져옵니다.
-        // 두 형제의 텍스트를 #traversal-result에 출력합니다.
-        // 처음부터 모든 요소를 각각 선택하지 말고 부모·자식·형제 탐색 프로퍼티를 사용합니다.
         function showRelations() {
           const $currentStep = document.getElementById('current-step');
 
@@ -373,12 +344,6 @@
       </ul>
 
       <script>
-        // 추가 버튼을 누르면 input의 현재 입력값을 가져옵니다.
-        // 빈 문자열이거나 공백뿐이면 항목을 추가하지 않습니다.
-        // createElement로 li 요소를 만들고 textContent로 내용을 넣습니다.
-        // 만든 li를 #todo-list의 마지막 자식으로 추가합니다.
-        // 추가한 뒤 input의 값을 비웁니다.
-        // 마지막 삭제 버튼은 마지막 자식 하나만 삭제합니다. 목록이 비어 있으면 아무 작업도 하지 않습니다.
         function addTodo() {
           const $todoInput = document.getElementById('todo-input');
           const $todoList = document.getElementById('todo-list');
@@ -422,11 +387,8 @@
           선택한 카드의 <code>dataset</code>에서 상품 번호, 상품명, 가격을
           가져옵니다.
         </li>
-        <li>
-          모든 상품 카드의 <code>selected</code> 클래스와
-          <code>data-selected</code> 어트리뷰트를 먼저 제거합니다.
-        </li>
-        <li>선택한 카드에만 <code>selected</code> 클래스를 추가합니다.</li>
+        <li>모든 상품 카드에서 <code>selected</code> 클래스를 제거합니다.</li>
+        <li>선택한 상품 카드에만 <code>selected</code> 클래스를 추가합니다.</li>
         <li>
           선택한 카드에 <code>data-selected="true"</code> 어트리뷰트를
           설정합니다.
@@ -471,13 +433,6 @@
       </p>
 
       <script>
-        // 상품 카드의 선택 버튼을 누르면 상품 번호가 selectProduct 함수에 전달됩니다.
-        // 전달받은 상품 번호와 속성 선택자를 사용하여 해당 상품 카드를 선택합니다.
-        // 선택한 카드의 dataset에서 상품 번호, 상품명, 가격을 가져옵니다.
-        // 모든 상품 카드의 selected 클래스와 data-selected 어트리뷰트를 먼저 제거합니다.
-        // 선택한 카드에만 selected 클래스를 추가합니다.
-        // 선택한 카드에 data-selected="true" 어트리뷰트를 설정합니다.
-        // 상품 정보를 #selected-product에 출력합니다.
         function selectProduct(productId) {
           const $selectedCard = document.querySelector(
             `[data-product-id="${productId}"]`,
@@ -559,12 +514,6 @@
       </article>
 
       <script>
-        // - 적용 버튼을 누르면 이름 input과 소개 textarea의 현재값을 읽습니다.
-        // - 입력한 이름과 소개를 프로필 카드 안의 알맞은 요소에 textContent로 표시합니다.
-        // - 색상 input의 값으로 카드의 테두리 색상을 변경합니다.
-        // - 크기 select가 compact이면 compact 클래스를 추가하고, normal이면 제거합니다.
-        // - 다크 모드 버튼을 누를 때마다 dark 클래스를 토글합니다.
-        // - 카드가 현재 dark 클래스를 가지고 있는지 확인하여 버튼의 텍스트를 변경합니다.
         function applyProfile() {
           const $nameInput = document.getElementById('profile-name-input');
           const $messageInput = document.getElementById(

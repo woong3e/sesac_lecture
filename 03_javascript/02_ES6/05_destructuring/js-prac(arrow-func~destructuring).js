@@ -155,6 +155,26 @@ const user = {
 
 // 문제 4 풀이
 
+const user = {
+  id: 1,
+  name: '홍길동',
+  role: 'student',
+  skills: ['JavaScript', 'React', 'CSS'],
+};
+
+const { name: userName, role, nickname = '이름 없음' } = user;
+const [mainSkill, ...otherSkills] = user.skills;
+
+console.log(`사용자명: ${userName}`);
+console.log(`역할: ${role}`);
+console.log(`별명: ${nickname}`);
+console.log(`주요 기술: ${mainSkill}`);
+console.log('나머지 기술:', otherSkills);
+
+function printUser({ name, role }) {
+  console.log(`${name}님의 역할은 ${role}입니다.`);
+}
+printUser(user);
 /*
 ======================================================================
 문제 5. 상품 목록을 새 값으로 갱신하기
@@ -212,3 +232,46 @@ const newProduct = {
 */
 
 // 문제 5 풀이
+
+const products = [
+  { id: 1, name: '키보드', price: 50000, stock: 3 },
+  { id: 2, name: '마우스', price: 30000, stock: 0 },
+  { id: 3, name: '모니터', price: 200000, stock: 2 },
+];
+
+const newProduct = {
+  id: 4,
+  name: '스피커',
+  price: 80000,
+  stock: 4,
+};
+
+const addedProducts = [...products, newProduct];
+
+const updatedProducts = addedProducts.map((product) => {
+  return product.id === 1 ? { ...product, price: 55000 } : product;
+});
+
+const availableProducts = products.filter(({ stock }) => {
+  return stock > 0;
+});
+
+const availableProductNames = availableProducts.map(({ name }) => {
+  return name;
+});
+
+const prices = updatedProducts.map(({ price }) => price);
+
+const totalPrice = getTotal(...prices);
+
+const getTotal = (...prices) =>
+  prices.reduce((total, price) => {
+    return total + price;
+  }, 0);
+
+console.log('원본 상품 수:', products.length);
+console.log('추가 후 상품 수:', addedProducts.length);
+console.log('원본 키보드 가격:', products[0].price);
+console.log('변경된 키보드 가격:', updatedProducts[0].price);
+console.log('판매 가능 상품:', availableProductNames);
+console.log('전체 상품 가격 합계:', totalPrice);
