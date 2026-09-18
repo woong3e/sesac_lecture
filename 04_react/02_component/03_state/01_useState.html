@@ -101,12 +101,38 @@
         );
       }
 
+      function CustomButton({ onClick, children }) {
+        console.log();
+        return (
+          <>
+            <button
+              onClick={onClick}
+              style={{
+                backgroundColor: 'black',
+                color: 'whitesmoke',
+                border: 'none',
+                padding: '3px',
+              }}
+            >
+              {children}
+            </button>
+          </>
+        );
+      }
+
       function App() {
+        const showWelcomeMessage = () => {
+          alert('우리 사이트에 오신 것을 환영합니다');
+        };
         return (
           <>
             <MessageManager />
             <hr />
             <Counter />
+            <hr />
+            <CustomButton onClick={showWelcomeMessage}>
+              <strong>환영 메세지</strong>
+            </CustomButton>
           </>
         );
       }
