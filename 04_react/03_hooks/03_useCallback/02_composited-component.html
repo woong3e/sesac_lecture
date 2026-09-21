@@ -26,13 +26,13 @@
         const [isDark, setIsDark] = useState(false);
 
         // 스타일 객체를 만드는 함수
-        const genSquareStyle = () => {
+        const genSquareStyle = useCallback(() => {
           return {
             backgroundColor: 'tomato',
             width: `${size}px`,
             height: `${size}px`,
           };
-        };
+        }, [size]);
 
         return (
           <div style={{ backgroundColor: isDark ? 'black' : 'white' }}>
