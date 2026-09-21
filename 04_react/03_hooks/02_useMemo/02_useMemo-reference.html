@@ -26,9 +26,9 @@
         const [number, setNumber] = useState(0);
         console.log('🚀🚀🚀렌더링🚀🚀🚀');
 
-        const location = {
-          country: isKorea ? '한국' : '외국',
-        };
+        const location = useMemo(() => {
+          return { country: isKorea ? '한국' : '외국' };
+        }, [isKorea]);
 
         useEffect(() => {
           console.log('useEffect 호출 location이 변경됐다.');
