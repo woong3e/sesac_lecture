@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "수정된 게시글 제목",
+      "author": "박지성"
+    },
+    {
+      "id": "2",
+      "title": "수정된 게시글 제목",
+      "author": "손흥민"
+    },
+    {
+      "title": "수정된 게시글 제목",
+      "author": "오현규",
+      "id": "pTVuhWkic50"
+    },
+    {
+      "title": "수정된 게시글 제목",
+      "author": "오현규",
+      "id": "L_IzEzy01xc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
