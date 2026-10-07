@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chap01_literal_and_variable/chap01_literal_and_variable.iml" filepath="$PROJECT_DIR$/chap01_literal_and_variable/chap01_literal_and_variable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chap02_operator/chap02_operator.iml" filepath="$PROJECT_DIR$/chap02_operator/chap02_operator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chap03_method_and_api/chap03_method_and_api.iml" filepath="$PROJECT_DIR$/chap03_method_and_api/chap03_method_and_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
+    </modules>
+  </component>
+</project>
