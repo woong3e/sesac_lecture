@@ -13,7 +13,6 @@ public class Application1 {
         // 기본 생성자 호출
         User user= new User();
         System.out.println(user.getInformation());
-        System.out.println(user.getInformation());
 
         // 2. 매개변수 있는 생성자
         User user1 = new User("user02","pass02","박지성");
