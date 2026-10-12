@@ -34,6 +34,12 @@ public class User {
         System.out.println("id, pwd, name을 초기화하는 생성자 호출됨.");
     }
 
+    public User(String id, String pwd, String name, java.util.Date enrollDate ){
+        this(id, pwd, name); // this() : 같은 클래스 내의 다른 생성자를 호출, 반드시 '첫 번째 줄'에 작성해야 한다.
+        this.enrollDate = enrollDate;
+        System.out.println("모든 필드를 초기화하는 생성자 호출");
+    }
+
     public String getId() {
         return id;
     }
