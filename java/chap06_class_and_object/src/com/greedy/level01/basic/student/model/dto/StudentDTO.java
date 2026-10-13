@@ -21,7 +21,56 @@ public class StudentDTO {
         this.math = math;
     }
 
-    public String getInfomation(){
-        return "학년=" + grade + "반=" + classroom + "이름=" + name + "국어=" + kor + "영어=" + eng + "수학=" + math + "평균=" + (kor + eng + math) / 3;
+    public int getGrade() {
+        return grade;
     }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(int classroom) {
+        this.classroom = classroom;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getKor() {
+        return kor;
+    }
+
+    public void setKor(int kor) {
+        this.kor = kor;
+    }
+
+    public int getEng() {
+        return eng;
+    }
+
+    public void setEng(int eng) {
+        this.eng = eng;
+    }
+
+    public int getMath() {
+        return math;
+    }
+
+    public void setMath(int math) {
+        this.math = math;
+    }
+
+    public String getInfomation(){
+        return "학년= " + grade + ", 반= " + classroom + ", 이름= " + name + ", 국어= " + kor + ", 영어= " + eng + ", 수학= " + math + ", 평균= " + (kor + eng + math) / 3;
+    }
+
 }
