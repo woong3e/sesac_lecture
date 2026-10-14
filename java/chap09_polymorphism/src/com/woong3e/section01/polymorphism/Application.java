@@ -34,7 +34,7 @@ public class Application {
 //        ((Rabbit)tiger).jump(); // tiger의 실제 객체는 Tiger이기 때문에 Rabbit으로 형변환 불가
 
         // 다운캐스팅 전에 instanceof 연산자로 가리키는 객체를 확인하는 것이 안전하다.
-        System.out.println("rabbit 은 TIger 타입인가? " + (rabbit instanceof Tiger));
+        System.out.println("rabbit 은 Tiger 타입인가? " + (rabbit instanceof Tiger));
 
         if(rabbit instanceof Rabbit){
             ((Rabbit)rabbit).jump();
@@ -60,7 +60,9 @@ public class Application {
                 ((Tiger)tiger).bite();
             }
         }
+
         System.out.println("----");
+
         ZooKeeper zooKeeper2 = new ZooKeeper();
         for(Animal animal: animals){
             zooKeeper2.feed(animal);
