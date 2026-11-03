@@ -14,6 +14,7 @@ public class MemberService {
     }
 
     public Map<Long, MemberDTO> selectMembers() {
+
         System.out.println("selectMembers 메소드 실행");
         return memberDAO.selectMembers();
     }
