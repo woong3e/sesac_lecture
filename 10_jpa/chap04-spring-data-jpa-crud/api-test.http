@@ -1,0 +1,31 @@
+### 전체 메뉴 조회
+GET http://localhost:8080/api/v1/menus
+
+### 상세 메뉴 조회
+GET http://localhost:8080/api/v1/menus/9004
+
+### 메뉴 생성
+POST http://localhost:8080/api/v1/menus
+Content-Type: application/json
+
+{
+  "menuName": "을밀대 평양냉면",
+  "menuPrice": 30000,
+  "categoryCode": 4,
+  "orderableStatus": "Y"
+}
+
+### 메뉴 수정
+PUT http://localhost:8080/api/v1/menus/9004
+Content-Type: application/json
+
+{
+  "menuName": "을밀대 평양냉면 곱빼기",
+  "menuPrice": 35000,
+  "categoryCode": 4,
+  "orderableStatus": "Y"
+}
+
+### 메뉴 삭제
+DELETE http://localhost:8080/api/v1/menus/9004
+
