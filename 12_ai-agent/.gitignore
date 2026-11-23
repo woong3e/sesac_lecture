@@ -1,0 +1,18 @@
+# API 키 등 비밀 정보 (절대 커밋 금지)
+.env
+.env.*
+!.env.example
+
+# 파이썬 자동 생성 파일
+__pycache__/
+*.pyc
+
+# 가상환경
+.venv/
+venv/
+
+# 주피터 노트북 자동 저장
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
