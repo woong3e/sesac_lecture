@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# 저장소 루트의 IntelliJ 설정 (각 Java 프로젝트 안의 .idea는 해당 없음)
+/.idea/
