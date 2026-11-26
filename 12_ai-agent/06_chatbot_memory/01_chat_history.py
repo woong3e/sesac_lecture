@@ -34,7 +34,7 @@ def main():
     inputs = {"history":history, "question":question }
     print("\n[이력을 넣은 실제 요청 메세지]")
     for message in prompt.invoke(inputs).to_messages():
-        print(f"message.type: {message.content}")
+        print(f"{message.type}: {message.content}")
 
     with_history = chain.invoke(inputs)
     print("\n[이력있는 요청의 답변]", with_history.content)
