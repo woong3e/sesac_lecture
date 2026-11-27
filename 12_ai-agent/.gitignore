@@ -16,3 +16,6 @@ venv/
 
 # macOS
 .DS_Store
+
+# Chroma 로컬 벡터 DB (노트북 실행 시 생성)
+.chroma-lab/
